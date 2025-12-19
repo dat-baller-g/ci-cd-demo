@@ -11,8 +11,12 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}`);
-});
+let server;
 
-module.exports = server;
+if (require.main === module) {
+  server = app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}`);
+  });
+}
+
+module.exports = { app, server };
