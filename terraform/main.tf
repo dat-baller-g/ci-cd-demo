@@ -68,11 +68,11 @@ resource "aws_instance" "web_app_server" {
 }
 
 # --------------------------
-# RDS Subnet Group (minimal)
+# RDS Subnet Group 
 # --------------------------
 resource "aws_db_subnet_group" "rds_subnets" {
   name       = "devops-demo-rds-subnet"
-  subnet_ids = var.subnet_ids   # You need at least 2 subnets for RDS
+  subnet_ids = var.subnet_ids   # Note that you need at least 2 subnets for RDS
 
   tags = {
     Name = "devops-demo-rds-subnet"
